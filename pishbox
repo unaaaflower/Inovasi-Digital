@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PhishBox | CyberWise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .perspective-card {
+            perspective: 1000px;
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#454652",
+                        "surface-container": "#eeeeed",
+                        "on-error": "#ffffff",
+                        "tertiary": "#201823",
+                        "on-secondary-fixed": "#0e1e1e",
+                        "on-primary-container": "#8690ee",
+                        "secondary-container": "#d4e6e5",
+                        "on-background": "#1a1c1c",
+                        "outline-variant": "#c6c5d4",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f0",
+                        "secondary-fixed-dim": "#b8cac9",
+                        "background": "#faf9f8",
+                        "on-primary-fixed": "#000767",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "on-tertiary-container": "#9f94a2",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "outline": "#767683",
+                        "on-secondary-container": "#576867",
+                        "tertiary-fixed-dim": "#cfc2d2",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-fixed-variant": "#3a4a49",
+                        "tertiary-fixed": "#ecdeee",
+                        "on-tertiary-fixed": "#201924",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e3e2e1",
+                        "surface-bright": "#faf9f8",
+                        "inverse-primary": "#bdc2ff",
+                        "surface-container-low": "#f4f3f2",
+                        "secondary-fixed": "#d4e6e5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#4d4450",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-container": "#352d39",
+                        "primary-fixed": "#e0e0ff",
+                        "primary": "#000666",
+                        "on-primary-fixed-variant": "#343d96",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#516161",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#4c56af",
+                        "surface-container-highest": "#e3e2e1",
+                        "primary-container": "#1a237e",
+                        "error-container": "#ffdad6",
+                        "surface": "#faf9f8",
+                        "surface-dim": "#dadad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "container-padding-mobile": "20px",
+                        "container-padding-desktop": "40px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "headline-lg": ["Quicksand"],
+                        "label-md": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "body-lg": ["Nunito Sans"],
+                        "button": ["Quicksand"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "button": ["16px", {"lineHeight": "24px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm w-full top-0 sticky z-40 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-16 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">CyberWise</span>
+</div>
+<!-- Gamified Status Bar -->
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-1.5 rounded-full shadow-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md">3/3</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md">1,240 XP</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Mission Info</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:opacity-80 transition-opacity" href="#">Help</a>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-primary-container p-0.5 border border-primary/10" data-alt="A profile avatar for a high school student learner, styled as a minimalist 3D character with soft pastel tones. The character wears cyber-themed glasses and a friendly expression, set against a clean lavender and white background. The artistic style is modern high-clarity minimalism with a professional yet playful educational vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCy-qETAJzTSlXWu_T0lYuyeIwC3nKlwXyvHYLjJqrcClzK-Ppb46tU3t7XHA8TXnJSRRcart3G1QRSXnmdrclFMMwC8AK-tXPmUQvnkRs8oh0QYfHPnqtasxxx82eFfcEWleM-Z4Ra3yfQU2tA2NkHThhV7gHzkv2PZMYAh-oUqVViZN0XpmNFnZDXzAYMEJNwO1hNyJ2NVO_tGTiWy85s6LqstgyZ5qR69MBWv6tUtkUu_e-7ckwUyXTZQCOtzKQG9cqXdKSdzUC"/>
+</div>
+</header>
+<main class="min-h-[calc(100vh-64px)] flex flex-col md:flex-row p-4 md:p-gutter gap-gutter">
+<!-- Top/Left: Mock Email Workspace -->
+<section class="flex-1 flex flex-col gap-4">
+<div class="bg-surface-container-lowest rounded-lg shadow-[0px_8px_24px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col border border-outline-variant/30 transition-all hover:scale-[1.01]">
+<!-- Workspace Header -->
+<div class="bg-surface-variant/30 px-6 py-4 border-b border-outline-variant/50 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">mark_as_unread</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Pesan Masuk</h2>
+</div>
+<span class="text-label-md font-label-md bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full">Simulasi Aktif</span>
+</div>
+<!-- Email Content Area -->
+<div class="p-6 md:p-8 flex-1 overflow-y-auto">
+<div class="mb-8 border-b border-outline-variant/20 pb-4">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-10 h-10 bg-error-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container">account_balance</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Admin Bank Sejahtera <span class="text-on-surface-variant font-normal text-sm ml-2">&lt;security-alert@bank-sejahtera-update.com&gt;</span></h3>
+<p class="text-sm text-on-surface-variant">Kepada: alex.hunter@cyberwise.edu</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h1 class="text-xl font-extrabold text-on-surface tracking-tight">Tindakan Diperlukan: Akun Anda Terkunci!</h1>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                            Pelanggan yang terhormat, <br/><br/>
+                            Kami mendeteksi upaya login yang tidak biasa pada akun Anda dari lokasi baru. Untuk menjaga keamanan dana Anda, kami telah membatasi akses ke fitur transaksi untuk sementara waktu.
+                        </p>
+<div class="bg-primary-container/5 p-4 rounded-xl border border-primary/10">
+<p class="font-bold text-primary mb-2">Segera ambil tindakan:</p>
+<p class="text-on-surface-variant">Silakan klik tombol di bawah ini untuk memverifikasi identitas Anda dan memulihkan akses penuh ke akun Anda dalam waktu 24 jam untuk menghindari penutupan permanen.</p>
+</div>
+<div class="flex justify-center py-6">
+<a class="bg-primary text-on-primary px-8 py-3 rounded-full font-button shadow-lg hover:shadow-xl transition-all active:scale-95" href="#" id="phish-link">
+                                Verifikasi Akun Sekarang
+                            </a>
+</div>
+<div class="hidden text-xs text-error font-mono bg-error-container/20 p-2 rounded border border-error/20 max-w-fit mx-auto" id="url-preview">
+                            Preview URL: http://security-update-bank-sejahtera.tk/secure/verify
+                        </div>
+<p class="text-on-surface-variant text-sm mt-8">
+                            Terima kasih,<br/>
+                            Tim Keamanan Bank Sejahtera
+                        </p>
+</div>
+</div>
+</div>
+<!-- Tip Card -->
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant p-4 rounded-lg flex items-start gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<div>
+<h4 class="font-bold">Tips Detektif:</h4>
+<p class="text-sm">Coba arahkan kursor (hover) ke tombol verifikasi untuk melihat alamat link yang sebenarnya sebelum mengkliknya.</p>
+</div>
+</div>
+</section>
+<!-- Bottom/Right: Action Panel -->
+<section class="w-full md:w-80 lg:w-96 flex flex-col gap-gutter">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant p-8 rounded-lg shadow-lg flex flex-col h-full border-t-8 border-tertiary shadow-[0px_12px_32px_rgba(0,0,0,0.08)]">
+<div class="mb-8 text-center">
+<span class="material-symbols-outlined text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<h2 class="font-headline-md text-headline-md font-extrabold mb-4">Uji Nyali!</h2>
+<p class="font-body-lg text-body-lg">Berdasarkan bukti yang kamu temukan, apakah email ini dapat dipercaya?</p>
+</div>
+<div class="space-y-4 flex-1">
+<button class="w-full py-4 bg-surface-container-lowest text-on-surface border-2 border-primary/10 rounded-full font-button flex items-center justify-center gap-3 hover:bg-secondary-container hover:border-secondary transition-all group active:scale-95" onclick="handleChoice('safe')">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">check_circle</span>
+                        Aman
+                    </button>
+<button class="w-full py-4 bg-primary text-on-primary rounded-full font-button flex items-center justify-center gap-3 hover:opacity-90 shadow-md hover:shadow-lg transition-all group active:scale-95" onclick="handleChoice('phish')">
+<span class="material-symbols-outlined text-white group-hover:animate-pulse">report</span>
+                        Laporkan Phishing
+                    </button>
+</div>
+<div class="mt-8">
+<div class="bg-surface-container-highest/50 rounded-2xl p-6 relative overflow-hidden">
+<div class="relative z-10">
+<h5 class="text-label-md font-label-md uppercase tracking-wider mb-2 opacity-70">Progress Misi</h5>
+<div class="flex justify-between items-end mb-2">
+<span class="font-bold text-2xl">75%</span>
+<span class="text-sm">Hampir Selesai!</span>
+</div>
+<div class="w-full bg-surface-variant h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">verified_user</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Hint Section -->
+<div class="bg-surface-container p-6 rounded-lg border-2 border-dashed border-outline-variant">
+<h3 class="font-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">find_in_page</span>
+                    Daftar Temuan
+                </h3>
+<ul class="space-y-2 text-sm">
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">radio_button_checked</span>
+                        Cek alamat email pengirim
+                    </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">radio_button_unchecked</span>
+                        Periksa bahasa &amp; nada bicara
+                    </li>
+<li class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xs">radio_button_unchecked</span>
+                        Validasi link tujuan (Hover)
+                    </li>
+</ul>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface-container dark:bg-surface-container-highest shadow-[0px_-4px_12px_rgba(0,0,0,0.04)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Hub</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-md text-label-md">Training</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">email</span>
+<span class="font-label-md text-label-md">PhishBox</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<!-- Overlay Success/Error (Hidden by default) -->
+<div class="fixed inset-0 z-[60] bg-on-background/40 backdrop-blur-sm flex items-center justify-center hidden" id="feedback-overlay">
+<div class="bg-surface p-8 rounded-xl max-w-sm w-full mx-4 shadow-2xl text-center transform transition-transform scale-95" id="feedback-card">
+<div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" id="feedback-icon-container">
+<span class="material-symbols-outlined text-5xl" id="feedback-icon"></span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2" id="feedback-title"></h2>
+<p class="text-on-surface-variant mb-8" id="feedback-text"></p>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-button" onclick="closeFeedback()">Lanjutkan Misi</button>
+</div>
+</div>
+<script>
+        // Micro-interactions for simulation
+        const phishLink = document.getElementById('phish-link');
+        const urlPreview = document.getElementById('url-preview');
+
+        phishLink.addEventListener('mouseenter', () => {
+            urlPreview.classList.remove('hidden');
+        });
+
+        phishLink.addEventListener('mouseleave', () => {
+            urlPreview.classList.add('hidden');
+        });
+
+        function handleChoice(choice) {
+            const overlay = document.getElementById('feedback-overlay');
+            const card = document.getElementById('feedback-card');
+            const iconContainer = document.getElementById('feedback-icon-container');
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            const text = document.getElementById('feedback-text');
+
+            overlay.classList.remove('hidden');
+            setTimeout(() => card.classList.remove('scale-95'), 10);
+
+            if (choice === 'phish') {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-secondary-container';
+                icon.innerText = 'verified';
+                icon.className = 'material-symbols-outlined text-5xl text-on-secondary-container';
+                title.innerText = 'Hebat, Detektif!';
+                text.innerText = 'Kamu benar. Email ini adalah phishing. Perhatikan domain pengirim dan link palsu yang mencurigakan.';
+            } else {
+                iconContainer.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 bg-error-container';
+                icon.innerText = 'heart_broken';
+                icon.className = 'material-symbols-outlined text-5xl text-on-error-container';
+                title.innerText = 'Hati-hati!';
+                text.innerText = 'Waduh, kamu terjebak. Email ini berbahaya! Selalu cek domain pengirim yang aneh seperti ".tk" atau sub-domain mencurigakan.';
+            }
+        }
+
+        function closeFeedback() {
+            const overlay = document.getElementById('feedback-overlay');
+            const card = document.getElementById('feedback-card');
+            card.classList.add('scale-95');
+            setTimeout(() => overlay.classList.add('hidden'), 200);
+        }
+    </script>
+</body></html>
