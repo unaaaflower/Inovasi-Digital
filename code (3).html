@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CyberWise Teacher Panel - Pak Andi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f1f0f0",
+                    "surface-dim": "#dadad9",
+                    "secondary-fixed": "#d4e6e5",
+                    "surface": "#faf9f8",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "surface-container": "#eeeeed",
+                    "secondary-fixed-dim": "#b8cac9",
+                    "inverse-primary": "#bdc2ff",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "outline": "#767683",
+                    "on-background": "#1a1c1c",
+                    "primary": "#000666",
+                    "surface-variant": "#e3e2e1",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#cfc2d2",
+                    "on-secondary-container": "#576867",
+                    "on-primary-fixed-variant": "#343d96",
+                    "tertiary-fixed": "#ecdeee",
+                    "outline-variant": "#c6c5d4",
+                    "surface-container-low": "#f4f3f2",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#4c56af",
+                    "secondary": "#516161",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#201924",
+                    "on-tertiary-container": "#9f94a2",
+                    "surface-container-highest": "#e3e2e1",
+                    "on-tertiary-fixed-variant": "#4d4450",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary-fixed-variant": "#3a4a49",
+                    "on-primary-container": "#8690ee",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#e0e0ff",
+                    "on-primary-fixed": "#000767",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#d4e6e5",
+                    "background": "#faf9f8",
+                    "primary-container": "#1a237e",
+                    "on-surface-variant": "#454652",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#0e1e1e",
+                    "inverse-surface": "#2f3130",
+                    "tertiary-container": "#352d39",
+                    "tertiary": "#201823",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px",
+                    "container-padding-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-md": ["Quicksand"],
+                    "body-md": ["Nunito Sans"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "button": ["Quicksand"],
+                    "body-lg": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            color: #1a1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e3e2e1;
+            border-radius: 10px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-body-md flex min-h-screen">
+<!-- NavigationDrawer (Sidebar) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 transition-all duration-300 shadow-md" id="drawer">
+<div class="p-6 flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-secondary-container">
+<img alt="Guru Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a friendly middle-aged male teacher named Pak Andi. He is wearing a clean, modern white shirt and is positioned against a soft-focus classroom background. The lighting is bright and natural, reflecting an optimistic and supportive educational atmosphere with pastel blue and mint accents in the soft-focus distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqSdIH2_FTqMtkBNVICTxTFI1Kp3Tqmx_44cUtYSWt1GPtQQtmUDdo0_3gwGS1UVWO0WUqGx4je5po8XSkUVKLTUsjArrcVSVZIKIKCMjn21t7PK4fi7KhDnYycoErIO0G00ZNVsVkPUGHq7GmCdvrE7gkM3PgGKxleiJpmySIFa-aGoFCZ1pgehXMy2cs-B0LYOqSm3f2peVcJ1e-Iqmhir_bP6M83VAaScY-QMEubaxRtym2YPtor57DgO0XSGCZftHD_GbfvCMR"/>
+</div>
+<div>
+<h3 class="font-headline-md text-[16px] font-bold text-primary">Dashboard Guru</h3>
+<p class="text-on-surface-variant text-[12px] font-label-md">Akses Manajemen Kelas</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 bg-primary text-on-primary rounded-full px-4 py-3 transition-all duration-150 translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md">Monitoring Kelas</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:bg-surface-variant rounded-full px-4 py-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-label-md">Laporan</span>
+</a>
+<div class="mt-8 px-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-outline">CyberWise Edu</p>
+</div>
+</nav>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-40 w-full shadow-sm">
+<div class="flex justify-between items-center px-container-mobile md:px-container-desktop h-16 max-w-[1100px] mx-auto">
+<div class="flex items-center gap-3">
+<button class="md:hidden p-2 hover:bg-secondary-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CyberWise</h1>
+</div>
+<div class="hidden sm:flex items-center gap-4">
+<div class="px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full font-label-md text-label-md">
+                        Lv. 12 • 2450 XP
+                    </div>
+</div>
+</div>
+</header>
+<!-- Canvas Content -->
+<div class="flex-1 p-container-mobile md:p-container-desktop max-w-[1100px] mx-auto w-full flex flex-col gap-stack-lg">
+<!-- Welcome Header -->
+<section class="flex flex-col gap-2">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Monitoring Kelas: XI-RPL 1</h2>
+<p class="text-on-surface-variant font-body-lg">Halo, Pak Andi. Berikut pantauan progres belajar siswa Anda hari ini.</p>
+</section>
+<!-- Stats Overview - Bento Grid Style -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Average Score -->
+<div class="glass-card p-6 rounded-lg shadow-[0_8px_24px_rgba(0,6,102,0.04)] flex flex-col gap-2 transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-primary" data-icon="stars">stars</span>
+<p class="text-on-surface-variant font-label-md text-label-md">Rata-rata Skor Kelas</p>
+<p class="font-headline-lg text-primary">85</p>
+</div>
+<!-- Progress Completed -->
+<div class="glass-card p-6 rounded-lg shadow-[0_8px_24px_rgba(0,6,102,0.04)] flex flex-col gap-2 transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-[#2ecc71]" data-icon="check_circle">check_circle</span>
+<p class="text-on-surface-variant font-label-md text-label-md">Siswa Selesai</p>
+<p class="font-headline-lg text-primary">28/40</p>
+</div>
+<!-- Active Now -->
+<div class="glass-card p-6 rounded-lg shadow-[0_8px_24px_rgba(0,6,102,0.04)] flex flex-col gap-2 transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+<p class="text-on-surface-variant font-label-md text-label-md">Sedang Online</p>
+<div class="flex items-center gap-2">
+<p class="font-headline-lg text-primary">12</p>
+<span class="w-3 h-3 bg-[#2ecc71] rounded-full animate-pulse"></span>
+</div>
+</div>
+<!-- Module Progress -->
+<div class="glass-card p-6 rounded-lg shadow-[0_8px_24px_rgba(0,6,102,0.04)] flex flex-col gap-2 transition-transform hover:scale-[1.02]">
+<span class="material-symbols-outlined text-[#9b59b6]" data-icon="auto_stories">auto_stories</span>
+<p class="text-on-surface-variant font-label-md text-label-md">Modul Terpopuler</p>
+<p class="font-headline-md text-primary truncate">SQL Injection Basics</p>
+</div>
+</section>
+<!-- Student Monitoring Table -->
+<section class="glass-card rounded-lg shadow-lg overflow-hidden border-none">
+<div class="p-6 border-b border-surface-variant flex justify-between items-center bg-white/50">
+<h3 class="font-headline-md text-primary">Daftar Progres Siswa</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full font-label-md text-on-surface focus:ring-2 focus:ring-primary w-64" placeholder="Cari Nama Siswa..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-md uppercase text-[12px] tracking-wider">
+<th class="px-6 py-4">Nama Siswa</th>
+<th class="px-6 py-4">Modul Terakhir</th>
+<th class="px-6 py-4">Skor</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant">
+<!-- Nanda Putri (Top Priority) -->
+<tr class="bg-secondary-container/20 hover:bg-secondary-container/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-primary flex items-center justify-center font-bold text-xs">NP</div>
+<span class="font-label-md font-semibold text-primary">Nanda Putri</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Cryptography Level 2</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1 text-primary font-bold">
+<span>98</span>
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#d5f5e3] text-[#1d8348]">
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Student 2 -->
+<tr class="hover:bg-surface-variant/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-primary flex items-center justify-center font-bold text-xs">BK</div>
+<span class="font-label-md text-on-surface">Budi Kusuma</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Network Security</td>
+<td class="px-6 py-4 font-bold text-on-surface">75</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#fef5e7] text-[#9c640c]">
+                                        Sedang Mengerjakan
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Student 3 -->
+<tr class="hover:bg-surface-variant/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-bold text-xs">AM</div>
+<span class="font-label-md text-on-surface">Adit Maulana</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Intro to Pentesting</td>
+<td class="px-6 py-4 font-bold text-on-surface">82</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#d5f5e3] text-[#1d8348]">
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Student 4 -->
+<tr class="hover:bg-surface-variant/20 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-outline-variant text-primary flex items-center justify-center font-bold text-xs">SN</div>
+<span class="font-label-md text-on-surface">Siti Nurhaliza</span>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant font-body-md">Cyber Ethics</td>
+<td class="px-6 py-4 font-bold text-on-surface">60</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-[#fef5e7] text-[#9c640c]">
+                                        Sedang Mengerjakan
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-transform active:scale-90">
+<span class="material-symbols-outlined text-primary">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-white/50 flex justify-center">
+<button class="text-primary font-button px-6 py-2 hover:bg-secondary-container rounded-full transition-colors">Lihat Semua 40 Siswa</button>
+</div>
+</section>
+</div>
+<!-- Footer Padding for Mobile Nav -->
+<div class="h-20 md:hidden"></div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 rounded-t-lg bg-surface-container-lowest shadow-[0_-8px_24px_rgba(0,6,102,0.04)] h-20 px-4 pb-safe flex justify-around items-center">
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-full px-4 py-1 scale-110 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-[10px]">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-label-md text-[10px]">Arena</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-[10px]">Pencapaian</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-[10px]">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple Interaction logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    // Micro-interaction: momentary sink
+                    row.style.transform = 'scale(0.995)';
+                    setTimeout(() => {
+                        row.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+
+            // Mobile menu toggle mock
+            const menuBtn = document.querySelector('button.md\\:hidden');
+            menuBtn.addEventListener('click', () => {
+                const drawer = document.getElementById('drawer');
+                drawer.classList.toggle('hidden');
+                drawer.classList.toggle('flex');
+            });
+        });
+    </script>
+</body></html>

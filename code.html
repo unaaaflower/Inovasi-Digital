@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f1f0f0",
+                    "surface-dim": "#dadad9",
+                    "secondary-fixed": "#d4e6e5",
+                    "surface": "#faf9f8",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "surface-container": "#eeeeed",
+                    "secondary-fixed-dim": "#b8cac9",
+                    "inverse-primary": "#bdc2ff",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-high": "#e9e8e7",
+                    "outline": "#767683",
+                    "on-background": "#1a1c1c",
+                    "primary": "#000666",
+                    "surface-variant": "#e3e2e1",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#cfc2d2",
+                    "on-secondary-container": "#576867",
+                    "on-primary-fixed-variant": "#343d96",
+                    "tertiary-fixed": "#ecdeee",
+                    "outline-variant": "#c6c5d4",
+                    "surface-container-low": "#f4f3f2",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#4c56af",
+                    "secondary": "#516161",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#201924",
+                    "on-tertiary-container": "#9f94a2",
+                    "surface-container-highest": "#e3e2e1",
+                    "on-tertiary-fixed-variant": "#4d4450",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary-fixed-variant": "#3a4a49",
+                    "on-primary-container": "#8690ee",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#e0e0ff",
+                    "on-primary-fixed": "#000767",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#d4e6e5",
+                    "background": "#faf9f8",
+                    "primary-container": "#1a237e",
+                    "on-surface-variant": "#454652",
+                    "on-error": "#ffffff",
+                    "on-secondary-fixed": "#0e1e1e",
+                    "inverse-surface": "#2f3130",
+                    "tertiary-container": "#352d39",
+                    "tertiary": "#201823",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "40px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px",
+                    "container-padding-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-md": ["Quicksand"],
+                    "body-md": ["Nunito Sans"],
+                    "headline-lg": ["Quicksand"],
+                    "headline-md": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "button": ["Quicksand"],
+                    "body-lg": ["Nunito Sans"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "button": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        .surface-card {
+            background-color: #ffffff;
+            box-shadow: 0px 8px 24px rgba(0, 6, 102, 0.04);
+            transition: all 0.2s ease;
+        }
+        .surface-card:active {
+            transform: scale(0.98);
+            box-shadow: 0px 4px 12px rgba(0, 6, 102, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="w-full sticky top-0 z-40 bg-surface shadow-sm h-16">
+<div class="flex justify-between items-center px-container-mobile md:px-container-desktop h-full w-full max-w-[1100px] mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="security">security</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">CyberWise</h1>
+</div>
+<div class="bg-secondary-container px-4 py-1.5 rounded-full flex items-center gap-2 transition-transform active:scale-95 duration-200">
+<span class="font-label-md text-label-md text-primary">Lv. 12 • 2450 XP</span>
+</div>
+</div>
+</header>
+<main class="max-w-[1100px] mx-auto px-container-mobile md:px-container-desktop py-stack-md space-y-stack-lg">
+<!-- Greeting Section -->
+<section class="space-y-2">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Halo, Nanda!</h2>
+<p class="font-body-lg text-body-lg text-secondary">Siap jaga datamu hari ini?</p>
+</section>
+<!-- Tantangan Hari Ini - Hero Card -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Tantangan Hari Ini</h3>
+<span class="text-primary font-label-md text-label-md cursor-pointer hover:underline">Lihat Semua</span>
+</div>
+<div class="relative overflow-hidden rounded-lg bg-tertiary-fixed p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center group cursor-pointer transition-all duration-300 hover:shadow-lg">
+<div class="w-full md:w-1/2 space-y-4 z-10">
+<div class="bg-white/50 backdrop-blur-sm inline-block px-3 py-1 rounded-full">
+<span class="font-label-md text-label-md text-on-tertiary-fixed-variant">Bonus +100 XP</span>
+</div>
+<h4 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-tertiary-fixed">Waspada Link Misterius</h4>
+<p class="font-body-md text-body-md text-on-tertiary-fixed-variant leading-relaxed">Seseorang mengirimimu email "Hadiah Saldo Gratis". Temukan 3 ciri-ciri phishing di dalamnya sebelum waktu habis!</p>
+<button class="bg-primary text-on-primary font-button text-button px-8 py-3 rounded-full hover:shadow-xl transition-all active:scale-95">Mulai Tantangan</button>
+</div>
+<div class="w-full md:w-1/2 relative aspect-video md:aspect-auto h-48 md:h-64 flex justify-center items-center">
+<img alt="Phishing Email Illustration" class="object-contain w-full h-full transform transition-transform group-hover:scale-105 duration-500" data-alt="A clean, minimalist vector illustration of a digital laptop screen showing a deceptive email interface. The email has a suspicious red warning icon and glowing Lavender pastel accents. Floating around the screen are abstract icons representing safety and digital locks in Mint and Soft Blue. The overall aesthetic is educational, modern, and high-quality minimalist digital art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW6_vfo_cnSYdnRhgxYzaHHyQQaFqNEJSEvfpm8JgKqCjBrLnakvByzEMvyNNY7PLbCa6wlzJDqrfZ9lv_TERWbJMd3B9oSuz-0fZND2IFdjdZiQho_9W-kt0dIFL-FyBGFTapyXR3yyQylUQF4smbsDiptaf3B_PUia5tPIUUy9itsgbmub3zFBRxizFec9kx5D8vRisp2PzcdZvKNrSDcdq-EAJroM_W_9gpO08Uaq14fIWEwv7G2i50c42if0FFc-8hiC6dUTxK"/>
+</div>
+</div>
+</section>
+<!-- Modul Aktif Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface">Modul Aktif</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+<!-- Modul Card 1: Phishing 101 -->
+<div class="surface-card p-6 rounded-full flex items-center gap-6 bg-secondary-fixed border-2 border-transparent hover:border-primary-fixed-dim">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="alternate_email">alternate_email</span>
+</div>
+<div class="flex-1 space-y-1">
+<h5 class="font-headline-md text-headline-md text-primary">Phishing 101</h5>
+<div class="w-full bg-white/40 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 75%"></div>
+</div>
+<p class="font-label-md text-label-md text-on-secondary-fixed-variant">75% Selesai</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center transition-all hover:rotate-12">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Modul Card 2: Password Security -->
+<div class="surface-card p-6 rounded-full flex items-center gap-6 bg-tertiary-fixed border-2 border-transparent hover:border-primary-fixed-dim">
+<div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-3xl" data-icon="lock">lock</span>
+</div>
+<div class="flex-1 space-y-1">
+<h5 class="font-headline-md text-headline-md text-tertiary">Password Security</h5>
+<div class="w-full bg-white/40 h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 30%"></div>
+</div>
+<p class="font-label-md text-label-md text-on-tertiary-fixed-variant">30% Selesai</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center transition-all hover:rotate-12">
+<span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Extra: Pencapaian Terkini -->
+<section class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Pencapaian Baru</h3>
+<div class="bento-grid">
+<div class="surface-card aspect-square rounded-full flex flex-col items-center justify-center gap-2 bg-primary-fixed/30 border border-primary-fixed">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-label-md text-primary text-center px-4">Penjaga Data</span>
+</div>
+<div class="surface-card aspect-square rounded-full flex flex-col items-center justify-center gap-2 bg-secondary-container/50">
+<span class="material-symbols-outlined text-secondary text-4xl opacity-40" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md text-secondary opacity-40">Terkunci</span>
+</div>
+<div class="surface-card aspect-square rounded-full flex flex-col items-center justify-center gap-2 bg-secondary-container/50">
+<span class="material-symbols-outlined text-secondary text-4xl opacity-40" data-icon="terminal">terminal</span>
+<span class="font-label-md text-label-md text-secondary opacity-40">Terkunci</span>
+</div>
+<div class="surface-card aspect-square rounded-full flex flex-col items-center justify-center gap-2 bg-secondary-container/50">
+<span class="material-symbols-outlined text-secondary text-4xl opacity-40" data-icon="shield_person">shield_person</span>
+<span class="font-label-md text-label-md text-secondary opacity-40">Terkunci</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 rounded-t-lg bg-surface-container-lowest shadow-[0_-8px_24px_rgba(0,6,102,0.04)] h-20">
+<div class="flex justify-around items-center h-full px-4 pb-safe">
+<!-- Beranda - Active State -->
+<a class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-full px-4 py-1 transition-all duration-200 scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md-mobile">Beranda</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-fixed-dim/20 rounded-full px-4 py-1 transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-label-md text-label-md-mobile">Arena</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-fixed-dim/20 rounded-full px-4 py-1 transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-label-md-mobile">Pencapaian</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:bg-secondary-fixed-dim/20 rounded-full px-4 py-1 transition-all active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md-mobile">Profil</span>
+</a>
+</div>
+</nav>
+<script>
+        // Micro-interactions and subtle feedback
+        document.querySelectorAll('.surface-card, button').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.style.transform = 'scale(0.95)';
+            });
+            el.addEventListener('mouseup', () => {
+                el.style.transform = '';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+            });
+        });
+    </script>
+</body></html>

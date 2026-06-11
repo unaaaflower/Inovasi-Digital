@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&amp;family=Nunito+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pulse-hint {
+            animation: subtle-pulse 2s infinite ease-in-out;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f1f0f0",
+                        "surface-dim": "#dadad9",
+                        "secondary-fixed": "#d4e6e5",
+                        "surface": "#faf9f8",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface-container": "#eeeeed",
+                        "secondary-fixed-dim": "#b8cac9",
+                        "inverse-primary": "#bdc2ff",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "outline": "#767683",
+                        "on-background": "#1a1c1c",
+                        "primary": "#000666",
+                        "surface-variant": "#e3e2e1",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#cfc2d2",
+                        "on-secondary-container": "#576867",
+                        "on-primary-fixed-variant": "#343d96",
+                        "tertiary-fixed": "#ecdeee",
+                        "outline-variant": "#c6c5d4",
+                        "surface-container-low": "#f4f3f2",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#4c56af",
+                        "secondary": "#516161",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#201924",
+                        "on-tertiary-container": "#9f94a2",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-tertiary-fixed-variant": "#4d4450",
+                        "surface-bright": "#faf9f8",
+                        "on-secondary-fixed-variant": "#3a4a49",
+                        "on-primary-container": "#8690ee",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e0e0ff",
+                        "on-primary-fixed": "#000767",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#d4e6e5",
+                        "background": "#faf9f8",
+                        "primary-container": "#1a237e",
+                        "on-surface-variant": "#454652",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#0e1e1e",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-container": "#352d39",
+                        "tertiary": "#201823",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding-desktop": "40px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "container-padding-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Quicksand"],
+                        "body-md": ["Nunito Sans"],
+                        "headline-lg": ["Quicksand"],
+                        "headline-md": ["Quicksand"],
+                        "headline-lg-mobile": ["Quicksand"],
+                        "button": ["Quicksand"],
+                        "body-lg": ["Nunito Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "button": ["16px", {"lineHeight": "24px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen pb-32">
+<!-- Top Navigation Anchor (Based on Shared Components JSON) -->
+<header class="bg-surface sticky top-0 z-40 shadow-sm transition-transform duration-200">
+<div class="flex justify-between items-center px-container-mobile md:px-container-desktop h-16 w-full max-w-[1100px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary font-bold" data-icon="security">security</span>
+<span class="font-headline-md text-headline-md font-bold text-primary">CyberWise</span>
+</div>
+<div class="bg-secondary-container px-4 py-1.5 rounded-full">
+<span class="font-label-md text-label-md text-on-secondary-container">Lv. 12 • 2450 XP</span>
+</div>
+</div>
+</header>
+<!-- Main Content: Phishing Simulation Arena -->
+<main class="max-w-[1100px] mx-auto px-container-mobile md:px-container-desktop mt-stack-md">
+<!-- Breadcrumb / Header Title -->
+<div class="mb-stack-md">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Arena Arena</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Selesaikan simulasi email di bawah ini. Apakah ini serangan phishing?</p>
+</div>
+<!-- Email Interface Simulator -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden shadow-[0_8px_24px_rgba(0,6,102,0.04)] max-w-[600px] mx-auto">
+<!-- Email Header -->
+<div class="p-stack-md border-b border-surface-variant">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<h2 class="font-label-md text-label-md text-on-surface flex items-center gap-1">
+                                Google Support
+                                <span class="material-symbols-outlined text-sm text-outline" data-icon="verified" style="font-size: 16px;">verified</span>
+</h2>
+<div class="relative group inline-block">
+<p class="text-xs text-outline font-body-md cursor-help flex items-center gap-1">
+                                    &lt;noreply@accounts-google.com.co&gt;
+                                    <span class="pulse-hint material-symbols-outlined text-error text-[14px]" data-icon="info">info</span>
+</p>
+<!-- Tooltip -->
+<div class="absolute left-0 top-full mt-2 w-64 p-3 bg-tertiary-container text-on-tertiary-container rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 text-xs font-body-md">
+                                    Perhatikan domain pengirim. Domain resmi Google biasanya berakhir dengan <b>.com</b>, bukan <b>.com.co</b>. Ini adalah tanda bahaya klasik!
+                                </div>
+</div>
+</div>
+</div>
+<span class="text-xs text-outline font-body-md">10:42 AM</span>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-md text-[18px] text-on-surface font-bold">Peringatan Keamanan: Akun Anda Terkunci</h3>
+</div>
+</div>
+<!-- Email Body -->
+<div class="p-stack-md font-body-md text-body-md text-on-surface-variant leading-relaxed">
+<p class="mb-4">Halo Pengguna,</p>
+<p class="mb-4">Kami mendeteksi aktivitas login yang mencurigakan dari perangkat yang tidak dikenal di Moskow, Rusia. Untuk melindungi keamanan Anda, kami telah mengunci akun Anda sementara.</p>
+<p class="mb-6">Mohon segera lakukan verifikasi identitas Anda untuk memulihkan akses penuh. Jika verifikasi tidak dilakukan dalam 24 jam, akun Anda akan dihapus secara permanen.</p>
+<!-- Call to Action -->
+<div class="flex justify-center my-8">
+<a class="bg-[#0052cc] text-white px-8 py-3 rounded-md font-bold hover:brightness-110 transition-all shadow-md" href="#" onclick="return false;">
+                        Verifikasi Sekarang
+                    </a>
+</div>
+<p class="mb-4">Terima kasih,<br/>Tim Keamanan Akun Google</p>
+<div class="mt-8 pt-6 border-t border-surface-variant text-[12px] text-outline text-center">
+                    Pesan ini dikirim secara otomatis. Mohon jangan membalas pesan ini.
+                </div>
+</div>
+</div>
+</main>
+<!-- Floating Action Bar -->
+<div class="fixed bottom-0 left-0 w-full z-50 px-container-mobile pb-8 pointer-events-none">
+<div class="max-w-[1100px] mx-auto flex flex-col md:flex-row justify-center items-center gap-4 pointer-events-auto">
+<!-- Report Phishing (Primary Navy) -->
+<button class="group flex items-center justify-center gap-3 bg-primary text-white font-button text-button px-10 py-5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 min-w-[240px]" onclick="handleAction('correct')">
+<span class="material-symbols-outlined" data-icon="report">report</span>
+                Laporkan Phishing
+            </button>
+<!-- Not Phishing (Lavender/Pastel) -->
+<button class="flex items-center justify-center gap-3 bg-secondary-fixed text-on-secondary-fixed font-button text-button px-10 py-5 rounded-full shadow-lg border-2 border-white hover:scale-105 active:scale-95 transition-all duration-200 min-w-[240px]" onclick="handleAction('wrong')">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                Bukan Phishing
+            </button>
+</div>
+</div>
+<!-- Success/Failure Modal (Hidden by default) -->
+<div class="fixed inset-0 z-[60] flex items-center justify-center p-6 hidden" id="feedback-modal">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+<div class="relative bg-surface-container-lowest p-stack-lg rounded-xl shadow-2xl max-w-md w-full text-center">
+<div class="w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6" id="modal-icon-container">
+<span class="material-symbols-outlined text-[48px]" id="modal-icon"></span>
+</div>
+<h2 class="font-headline-md text-headline-md mb-2" id="modal-title"></h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8" id="modal-body"></p>
+<button class="w-full bg-primary text-white font-button py-4 rounded-full" onclick="closeModal()">Lanjutkan Latihan</button>
+</div>
+</div>
+<!-- Bottom Navigation (Shared Component Logic) -->
+<nav class="fixed bottom-0 left-0 w-full z-40 md:hidden">
+<div class="bg-surface-container-lowest shadow-[0_-8px_24px_rgba(0,6,102,0.04)] rounded-t-lg flex justify-around items-center h-20 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-[10px]">Beranda</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-full px-4 py-1 scale-110">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="font-label-md text-[10px]">Arena</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-[10px]">Pencapaian</span>
+</div>
+<div class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-[10px]">Profil</span>
+</div>
+</div>
+</nav>
+<script>
+        function handleAction(type) {
+            const modal = document.getElementById('feedback-modal');
+            const iconContainer = document.getElementById('modal-icon-container');
+            const icon = document.getElementById('modal-icon');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            modal.classList.remove('hidden');
+
+            if (type === 'correct') {
+                iconContainer.className = 'w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 bg-secondary-fixed text-on-secondary-fixed';
+                icon.innerText = 'verified';
+                title.innerText = 'Sangat Bagus!';
+                body.innerText = 'Anda berhasil mengidentifikasi serangan phishing ini. Alamat email palsu (.com.co) dan nada mendesak adalah indikator kuat penipuan.';
+            } else {
+                iconContainer.className = 'w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 bg-error-container text-on-error-container';
+                icon.innerText = 'warning';
+                title.innerText = 'Hampir Saja!';
+                body.innerText = 'Waspada! Ini adalah email phishing. Perhatikan domain pengirimnya yang mencurigakan. Selalu periksa detail pengirim sebelum mengklik tautan apapun.';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('feedback-modal').classList.add('hidden');
+        }
+
+        // Simple parallax/movement effect for the email card
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.bg-surface-container-lowest.border');
+            if (window.innerWidth > 768 && card) {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+    </script>
+</body></html>
